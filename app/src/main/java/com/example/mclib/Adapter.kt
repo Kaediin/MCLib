@@ -2,14 +2,16 @@ package com.example.mclib
 
 import android.content.Context
 import android.content.Intent
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.contentValuesOf
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mclib.model.Item
 
-class Adapter(private val dataSet : ArrayList<String>, private val context: Context) :
+class Adapter(private val dataSet : ArrayList<Item>, private val context: Context) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
@@ -26,11 +28,12 @@ class Adapter(private val dataSet : ArrayList<String>, private val context: Cont
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = dataSet[position]
+        holder.textView.text = dataSet[position].title
 
         holder.textView.setOnClickListener {
-            Toast.makeText(context, "Loading: "+dataSet[position], Toast.LENGTH_SHORT).show()
-
+            val intent = Intent(context, DisplayItem::class.java)
+            intent.putExtra("item_for_display",  dataSet[position])
+            it.context.startActivity(intent)
         }
     }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "277025525528",
+    "firebase_url": "https://mclib-coordinates.firebaseio.com",
+    "project_id": "mclib-coordinates",
+    "storage_bucket": "mclib-coordinates.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277025525528:android:079683fbbb06919753986d",
+        "android_client_info": {
+          "package_name": "com.example.mclib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277025525528-rk6ar8620k8p2mno8qa6t05k02amir60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJhOENtvO2Vi1sett0t62wte1OYPU2OFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277025525528-rk6ar8620k8p2mno8qa6t05k02amir60.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

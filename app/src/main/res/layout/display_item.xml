@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/display_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Item title"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:id="@+id/display_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_title"
+        android:layout_centerHorizontal="true"
+        android:hint="X coordinaat"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/display_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_x"
+        android:layout_centerHorizontal="true"
+        android:hint="Y coordinaat"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/display_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_y"
+        android:layout_centerHorizontal="true"
+        android:hint="Z coordinaat"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/display_description"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/display_z"
+        android:layout_marginTop="100dp"
+        android:hint="description"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+
+
+
+
+</RelativeLayout>

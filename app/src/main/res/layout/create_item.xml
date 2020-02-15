@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/et_titel"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:hint="Titel"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <EditText
+        android:id="@+id/et_x_coord"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_titel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:hint="X Coordinaat"
+        android:inputType="numberSigned"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <EditText
+        android:id="@+id/et_y_coord"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_x_coord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Y Coordinaat"
+        android:inputType="numberSigned"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <EditText
+        android:id="@+id/et_z_coord"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_y_coord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Z Coordinaat"
+        android:inputType="numberSigned"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_z_coord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:hint="Omschrijving (optioneel)"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_save_item"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Opslaan"
+        android:padding="15dp"
+        android:backgroundTint="@color/white"/>
 </RelativeLayout>
