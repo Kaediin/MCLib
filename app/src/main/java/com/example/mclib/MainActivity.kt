@@ -1,67 +1,43 @@
 package com.example.mclib
 
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
+import android.content.res.ColorStateList
 import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mclib.model.Item
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
+import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var buttonCreateNew: Button
-    private val db = FirebaseFirestore.getInstance()
-
-    private val list = ArrayList<Item>()
-
+    private lateinit var buttonCreateNew: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        buttonCreateNew = findViewById(R.id.btn_create_item)
-
-        val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
-
-        db.collection("Items")
-            .get()
-            .addOnSuccessListener { results ->
-                for (result in results) {
-                    val item = result["itemFile", Item::class.java]
-                    list.add(item!!)
-                }
-                display(decorator)
-            }
-            .addOnFailureListener { exception ->
-                Log.d("TEST", "Error getting documents: ", exception)
-            }
-    }
+        Log.d("DEBUG", "MainActivity onCreate called")
 
 
-    private fun display(decorator : DividerItemDecoration) {
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = Adapter(list, this)
+        val fragmentAdapter = PagerAdapter(supportFragmentManager)
+        viewpager_main.adapter = fragmentAdapter
 
-        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
-            addItemDecoration(decorator)
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        tabs_main.setupWithViewPager(viewpager_main)
+        tabs_main.tabTextColors = resources.getColorStateList(android.R.color.white)
+        Log.d("DEBUG", "Viewpager setup")
+
+        buttonCreateNew = findViewById(R.id.fab)
 
         buttonCreateNew.setOnClickListener {
             intent = Intent(this, CreateNewItem::class.java)
             startActivity(intent)
         }
+
+
     }
 }
