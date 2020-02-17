@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="placeholder"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:paddingStart="20dp"
     android:background="@color/colorPrimary"
-    android:textColor="@color/white"
-    >
+    android:layout_margin="10dp">
 
-</TextView>
+    <TextView
+        android:id="@+id/tv_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:text="@string/placeholder"
+        android:textColor="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"/>
+</RelativeLayout>

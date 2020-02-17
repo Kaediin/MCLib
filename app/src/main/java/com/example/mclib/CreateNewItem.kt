@@ -12,12 +12,6 @@ import java.util.*
 
 class CreateNewItem : AppCompatActivity() {
 
-//    private lateinit var et_title : EditText
-//    private lateinit var et_x_coord : EditText
-//    private lateinit var et_y_coord : EditText
-//    private lateinit var et_z_coord : EditText
-//    private lateinit var et_description : EditText
-//    private lateinit var button_save : Button
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +57,8 @@ class CreateNewItem : AppCompatActivity() {
                 et_y_coord.text.toString(),
                 et_z_coord.text.toString(),
                 et_spinner.selectedItem.toString(),
-                et_description.text.toString()
+                et_description.text.toString(),
+                date
                 )
 
             val exportMap = hashMapOf(
@@ -74,10 +69,10 @@ class CreateNewItem : AppCompatActivity() {
             db.collection("Items").document(item.title)
                 .set(exportMap)
                 .addOnSuccessListener {
-                    Log.d("TEST", "DocumentSnapshot successfully written!")
+                    Log.d("Firebase", "DocumentSnapshot successfully written!")
                 }
-                .addOnFailureListener { e -> Log.w("TEST", "Error writing document", e) }
-
+                .addOnFailureListener { e -> Log.w("Firebase", "Error writing document", e) }
+            Provider.addItem(item)
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 

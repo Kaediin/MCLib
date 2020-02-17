@@ -4,66 +4,93 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/display_title"
-        android:layout_width="300dp"
+        android:id="@+id/display_creationdate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
         android:layout_centerHorizontal="true"
-        android:hint="Item title"
-        android:textColor="@color/white"
         android:layout_marginTop="50dp"
-        android:textSize="24sp"
-        />
+        android:textColor="@color/white"
+        android:hint="@string/placeholder"/>
+
+    <TextView
+        android:layout_below="@+id/display_creationdate"
+        android:id="@+id/display_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/placeholder"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/display_x"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
         android:layout_below="@id/display_title"
         android:layout_centerHorizontal="true"
-        android:hint="X coordinaat"
+        android:hint="@string/placeholder"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
         android:textColor="@color/white"/>
+
     <TextView
         android:id="@+id/display_y"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
         android:layout_below="@id/display_x"
         android:layout_centerHorizontal="true"
-        android:hint="Y coordinaat"
+        android:hint="@string/placeholder"
         android:layout_marginTop="40dp"
         android:textSize="20sp"
         android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/display_z"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
         android:layout_below="@id/display_y"
         android:layout_centerHorizontal="true"
-        android:hint="Z coordinaat"
+        android:hint="@string/placeholder"
         android:layout_marginTop="40dp"
         android:textSize="20sp"
         android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/display_world"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:layout_below="@id/display_z"
         android:layout_marginTop="50dp"
-        android:hint="Wereld"
+        android:hint="@string/placeholder"
         android:textSize="24sp"
         android:textColor="@color/white"/>
 
+    <View
+        android:id="@+id/separator"
+        android:layout_below="@+id/display_world"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/marginstart"
+        android:layout_marginTop="50dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"/>
+
+
     <TextView
         android:id="@+id/display_description"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/display_world"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/separator"
+        android:layout_marginTop="25dp"
         android:hint=""
         android:textSize="18sp"
         android:textColor="@color/white"/>

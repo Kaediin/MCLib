@@ -1,6 +1,7 @@
 package com.example.mclib.model
 
 import java.io.Serializable
+import java.util.*
 
 
 data class Item(
@@ -9,7 +10,8 @@ data class Item(
     var yCoord: String,
     var zCoord: String,
     var world: String,
-    var description: String
+    var description: String,
+    var creationdate : Date
 ) : Serializable {
-    constructor() : this("", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", Calendar.getInstance().time)
 }

@@ -3,21 +3,20 @@ package com.example.mclib
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.mclib.Fragments.FirstFragment
-import com.example.mclib.Fragments.SecondFragment
-import com.example.mclib.Fragments.ThirdFragment
+import com.example.mclib.Fragments.EndFragment
+import com.example.mclib.Fragments.NetherFragment
+import com.example.mclib.Fragments.OverworldFragment
 
 class PagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                FirstFragment()
+                OverworldFragment()
             }
-            1 -> SecondFragment()
+            1 -> NetherFragment()
             else -> {
-                return ThirdFragment()
+                return EndFragment()
             }
         }
     }

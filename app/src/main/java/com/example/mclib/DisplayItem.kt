@@ -21,5 +21,6 @@ class DisplayItem : AppCompatActivity() {
         display_z.text = "Z: "+item.zCoord
         display_world.text = item.world
         display_description.text = item.description
+        display_creationdate.text = item.creationdate.toString()
     }
 }
