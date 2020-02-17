@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mclib.model.Item
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.create_item.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class CreateNewItem : AppCompatActivity() {
