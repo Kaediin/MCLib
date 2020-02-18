@@ -6,6 +6,8 @@ class Provider {
 
     companion object {
 
+        lateinit var username : String
+
         var allItems = ArrayList<Item>()
         var overworldItems = ArrayList<Item>()
         var netherItems = ArrayList<Item>()

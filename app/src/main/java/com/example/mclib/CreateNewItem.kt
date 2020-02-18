@@ -6,7 +6,9 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mclib.model.Item
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.create_item.*
 import java.util.*
 
@@ -58,7 +60,8 @@ class CreateNewItem : AppCompatActivity() {
                 et_z_coord.text.toString(),
                 et_spinner.selectedItem.toString(),
                 et_description.text.toString(),
-                date
+                date,
+                Provider.username
                 )
 
             val exportMap = hashMapOf(
@@ -69,15 +72,16 @@ class CreateNewItem : AppCompatActivity() {
             db.collection("Items").document(item.title)
                 .set(exportMap)
                 .addOnSuccessListener {
-                    Log.d("Firebase", "DocumentSnapshot successfully written!")
+                    Log.d("CreateNewItem", "DocumentSnapshot successfully written!")
                 }
-                .addOnFailureListener { e -> Log.w("Firebase", "Error writing document", e) }
+                .addOnFailureListener { e -> Log.w("CreateNewItem", "Error writing document", e) }
             Provider.addItem(item)
+            Toast.makeText(this, "Waypoint '${item.title}' has been added!", Toast.LENGTH_SHORT).show()
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
         } else{
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_LONG).show()
+            Snackbar.make(rel_create_new_item, "Please fill in all fields", Snackbar.LENGTH_LONG).show()
         }
 
     }

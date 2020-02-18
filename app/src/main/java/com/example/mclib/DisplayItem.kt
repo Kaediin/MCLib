@@ -15,12 +15,13 @@ class DisplayItem : AppCompatActivity() {
 
         val item = intent.getSerializableExtra("item_for_display") as? Item
 
-        display_title.text = item!!.title
-        display_x.text = "X: "+item.xCoord
-        display_y.text = "Y: "+item.yCoord
-        display_z.text = "Z: "+item.zCoord
-        display_world.text = item.world
-        display_description.text = item.description
-        display_creationdate.text = item.creationdate.toString()
+        display_author.text = item?.username
+        display_title.text = item?.title
+        display_x.text = "X: "+item?.xCoord
+        display_y.text = "Y: "+item?.yCoord
+        display_z.text = "Z: "+item?.zCoord
+        display_world.text = item?.world
+        display_description.text = item?.description
+        display_creationdate.text = item?.creationdate.toString()
     }
 }

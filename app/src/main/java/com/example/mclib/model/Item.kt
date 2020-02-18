@@ -11,7 +11,8 @@ data class Item(
     var zCoord: String,
     var world: String,
     var description: String,
-    var creationdate : Date
+    var creationdate : Date,
+    var username : String
 ) : Serializable {
-    constructor() : this("", "", "", "", "", "", Calendar.getInstance().time)
+    constructor() : this("", "", "", "", "", "", Calendar.getInstance().time, "Anonymous user")
 }

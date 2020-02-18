@@ -4,12 +4,22 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/display_creationdate"
+        android:id="@+id/display_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginstart"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:hint="@string/placeholder"/>
+
+    <TextView
+        android:id="@+id/display_creationdate"
+        android:layout_below="@id/display_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginstart"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:hint="@string/placeholder"/>
 
@@ -20,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginstart"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
         android:hint="@string/placeholder"
         android:textColor="@color/white"
         android:textSize="24sp" />

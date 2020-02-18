@@ -1,15 +1,18 @@
 package com.example.mclib.Fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mclib.Adapter
 import com.example.mclib.Provider
 import com.example.mclib.R
+import kotlinx.android.synthetic.main.list_item.*
 
 class NetherFragment : Fragment() {
 

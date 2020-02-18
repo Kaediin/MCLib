@@ -2,6 +2,7 @@ package com.example.mclib
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -28,6 +29,9 @@ class Adapter(private val dataSet : ArrayList<Item>, private val context: Contex
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.relativeLayout.tv_list_item.text = dataSet[position].title
+
+
+//        holder.relativeLayout.setBackgroundColor(holder.relativeLayout.resources.getColor(R.color.color_nether))
 
         holder.relativeLayout.tv_list_item.setOnClickListener {
             val intent = Intent(context, DisplayItem::class.java)
