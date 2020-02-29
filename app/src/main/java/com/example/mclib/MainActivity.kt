@@ -35,11 +35,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity", "MainActivity onCreate called")
 
         firebaseAuth = FirebaseAuth.getInstance()
-
     }
 
-    private fun load() {
-        if (Provider.allItems.isEmpty()) {
+    private fun load(isRefresh : Boolean) {
+        if (Provider.allItems.isEmpty() || isRefresh) {
             list.clear()
             db.collection("Items")
                 .get()
@@ -67,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             Provider.username = user.displayName!!
-            load()
+            load(false)
         } else {
             configureGoogleSignIn()
             signIn()
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                     "Welcome",
                     Snackbar.LENGTH_LONG
                 ).show()
-                load()
+                load(true)
             } else {
                 Snackbar.make(rel_layout_main, "Google sign in failed:(", Snackbar.LENGTH_LONG)
                     .show()
@@ -135,6 +134,10 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this, CreateNewItem::class.java)
             startActivity(intent)
 
+        }
+
+        fab_refresh.setOnClickListener {
+            load(true)
         }
     }
 }
