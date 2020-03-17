@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     private var list = ArrayList<Item>()
-    private val RC_SIGN_IN: Int = 1
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +32,14 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity", "MainActivity onCreate called")
 
         firebaseAuth = FirebaseAuth.getInstance()
+        load(Provider.firstload)
+        Provider.firstload = false
     }
 
     private fun load(isRefresh : Boolean) {
         if (Provider.allItems.isEmpty() || isRefresh) {
             list.clear()
-            db.collection("Items")
+            db.collection(Provider.world)
                 .get()
                 .addOnSuccessListener { results ->
                     for (result in results) {
@@ -58,68 +57,6 @@ class MainActivity : AppCompatActivity() {
         } else if (Provider.allItems.size > 0) {
             setupRecyclerView()
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            Provider.username = user.displayName!!
-            load(false)
-        } else {
-            configureGoogleSignIn()
-            signIn()
-        }
-    }
-
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
-            if (it.isSuccessful) {
-                Snackbar.make(
-                    rel_layout_main,
-                    "Welcome",
-                    Snackbar.LENGTH_LONG
-                ).show()
-                load(true)
-            } else {
-                Snackbar.make(rel_layout_main, "Google sign in failed:(", Snackbar.LENGTH_LONG)
-                    .show()
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                if (account != null) {
-                    firebaseAuthWithGoogle(account)
-                }
-            } catch (e: ApiException) {
-                Snackbar.make(
-                    rel_layout_main,
-                    "Please sign in to use this app",
-                    Snackbar.LENGTH_LONG
-                ).show()
-            }
-        }
-    }
-
-    private fun signIn() {
-        val signInIntent: Intent = mGoogleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-
-    private fun configureGoogleSignIn() {
-        mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions)
     }
 
     fun setupRecyclerView() {

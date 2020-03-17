@@ -1,12 +1,17 @@
 package com.example.mclib
 
 import com.example.mclib.model.Item
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class Provider {
 
     companion object {
 
         lateinit var username : String
+        lateinit var user : FirebaseUser
+        lateinit var world : String
+        var firstload = false
 
         var allItems = ArrayList<Item>()
         var overworldItems = ArrayList<Item>()

@@ -69,7 +69,7 @@ class CreateNewItem : AppCompatActivity() {
                 "itemFile" to item
             )
 
-            db.collection("Items").document(item.title)
+            db.collection(Provider.world).document(item.title)
                 .set(exportMap)
                 .addOnSuccessListener {
                     Log.d("CreateNewItem", "DocumentSnapshot successfully written!")
